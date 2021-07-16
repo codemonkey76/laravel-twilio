@@ -1,0 +1,30 @@
+{
+	"name": "codemonkey76/laravel-twilio",
+	"description": "Wrapper for twilio/sdk",
+	"type": "library",
+	"require": {
+		"php": ">=7.4",
+		"illuminate/support": "5.6.8"
+	},
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Shane Poppleton",
+			"email": "shane@bjja.com.au"
+		}
+	],
+	"autoload": {
+		"psr-4": {
+			"Codemonkey76\\Twilio": "src/"
+		}
+	},
+	"extra": {
+		"laravel": {
+			"providers": [
+				"Codemonkey76\\Twilio\\TwilioServiceProvider"
+			]
+		}
+	},
+	"minimum-stability": "dev",
+	"prefer-stable": true
+}
