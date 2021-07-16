@@ -4,7 +4,7 @@
 	"type": "library",
 	"require": {
 		"php": ">=7.4",
-		"illuminate/support": "^6|^7|^8|^9"
+		"illuminate/support": "5.6.8"
 	},
 	"license": "MIT",
 	"authors": [
@@ -15,14 +15,17 @@
 	],
 	"autoload": {
 		"psr-4": {
-			"Codemonkey76\\Twilio\\": "src/"
+			"Codemonkey76\\Twilio": "src/"
 		}
 	},
 	"extra": {
 		"laravel": {
 			"providers": [
 				"Codemonkey76\\Twilio\\TwilioServiceProvider"
-			]
+			],
+			"aliases": {
+				"Twilio":"Codemonkey76\\Twilio\\Facades\\TwilioFacade"
+			}
 		}
 	},
 	"minimum-stability": "dev",

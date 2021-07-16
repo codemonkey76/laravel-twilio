@@ -2,7 +2,7 @@
 
 namespace Codemonkey76\Twilio;
 
-class Twilio
+class TwilioService
 {
     public function foo(): string
     {

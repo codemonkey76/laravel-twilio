@@ -14,6 +14,6 @@ class TwilioServiceProvider extends ServiceProvider
     public function register()
     {
         $this->mergeConfigFrom(__DIR__.'/../config/twilio.php', 'twilio-config');
-        $this->app->bind('twilio', fn($app) => new Twilio());
+        $this->app->bind('twilio', fn($app) => new TwilioService());
     }
 }
