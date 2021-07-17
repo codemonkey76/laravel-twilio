@@ -2,6 +2,8 @@
 
 namespace Codemonkey76\Twilio;
 
+use Twilio\Rest\Client;
+
 class TwilioService
 {
     protected string $from = '';
@@ -21,6 +23,9 @@ class TwilioService
 
     public function message(string $message): bool
     {
+        $client = new Client(config('twilio.account_sid'), config('twilio.auth_token'));
+
+        $client->messages->create($this->to, ['from' => $this->from, 'body' => $message]);
         info("sending message to: {$this->to} from {$this->from}");
         return true;
     }
