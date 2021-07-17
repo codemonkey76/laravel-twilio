@@ -4,9 +4,24 @@ namespace Codemonkey76\Twilio;
 
 class TwilioService
 {
-    public function sendMessage(string $from, string $to, string $message): bool
+    protected string $from = '';
+    protected string $to = '';
+
+    public function from(string $from): TwilioService
     {
-        info("sending message to: {$to} from {$from}");
+        $this->from = $from;
+        return $this;
+    }
+
+    public function to(string $to): TwilioService
+    {
+        $this->to = $to;
+        return $this;
+    }
+
+    public function message(string $message): bool
+    {
+        info("sending message to: {$this->to} from {$this->from}");
         return true;
     }
 }
