@@ -2,20 +2,38 @@
 
 namespace Codemonkey76\Twilio;
 
+use Twilio\Exceptions\ConfigurationException;
 use Twilio\Rest\Client;
+use Illuminate\Contracts\Config\Repository as Config;
+
 
 class TwilioService
 {
     protected string $from = '';
     protected string $to = '';
+    protected Client $client;
 
-    public function from(string $from): TwilioService
+
+    public static function make(): self
+    {
+        return app(static::class);
+    }
+
+    /**
+     * @throws ConfigurationException
+     */
+    public function __construct(Config $config)
+    {
+        $this->client = new Client($config->get('account_sid'), $config->get('auth_token'));
+    }
+
+    public function from(string $from): self
     {
         $this->from = $from;
         return $this;
     }
 
-    public function to(string $to): TwilioService
+    public function to(string $to): self
     {
         $this->to = $to;
         return $this;
@@ -23,10 +41,11 @@ class TwilioService
 
     public function message(string $message): bool
     {
-        $client = new Client(config('twilio.account_sid'), config('twilio.auth_token'));
-
-        $client->messages->create($this->to, ['from' => $this->from, 'body' => $message]);
-        info("sending message to: {$this->to} from {$this->from}");
+        try {
+            $this->client->messages->create($this->to, ['from' => $this->from, 'body' => $message]);
+        } catch (\Exception $e) {
+            return false;
+        }
         return true;
     }
 }

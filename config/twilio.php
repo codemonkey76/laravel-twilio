@@ -1,4 +1,4 @@
-<?php
+    <?php
 
 return [
     'account_sid' => getenv('TWILIO_ACCOUNT_SID'),
