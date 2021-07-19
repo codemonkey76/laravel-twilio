@@ -15,6 +15,6 @@ class TwilioServiceProvider extends ServiceProvider
     {
         $this->mergeConfigFrom(__DIR__.'/../config/twilio.php', 'twilio');
 
-        $this->app->bind(TwilioService::class, fn($app) => new TwilioService(config('twilio.account_sid'), config('twilio.auth_token')));
+        $this->app->bind(TwilioService::class, TwilioService::class);
     }
 }
