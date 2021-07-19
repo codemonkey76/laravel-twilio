@@ -47,4 +47,9 @@ class TwilioService
             return false;
         }
     }
+    
+    public function getClient(): Client
+    {
+        return $this->client;
+    }
 }
