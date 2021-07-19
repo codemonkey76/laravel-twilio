@@ -39,13 +39,12 @@ class TwilioService
         return $this;
     }
 
-    public function message(string $message): bool
+    public function message(string $message)
     {
         try {
-            $this->client->messages->create($this->to, ['from' => $this->from, 'body' => $message]);
+            return $this->client->messages->create($this->to, ['from' => $this->from, 'body' => $message]);
         } catch (\Exception $e) {
             return false;
         }
-        return true;
     }
 }
