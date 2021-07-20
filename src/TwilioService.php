@@ -54,4 +54,13 @@ class TwilioService
     {
         return $this->client;
     }
+    public function toArray(): array
+    {
+        return [
+            'from' => $this->from,
+            'to' => $this->to,
+            'client' => $this->client,
+            'statusCallback' => $this->statusCallback
+        ];
+    }
 }
