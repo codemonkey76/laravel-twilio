@@ -25,6 +25,9 @@ class TwilioService
      */
     public function __construct(Config $config)
     {
+        info('Account SID    : ' . $config->get('account_sid'));
+        info('Auth Token     : ' . $config->get('auth_token'));
+        info('Status Callback: ' . $config->get('status_callback'));
         $this->client = new Client($config->get('account_sid', ''), $config->get('auth_token', ''));
         $this->statusCallback = $config->get('status_callback', '');
     }
