@@ -9,6 +9,9 @@ class TwilioServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->publishes([__DIR__.'/../config/twilio.php' => config_path('twilio.php')], 'twilio');
+
+        $router = $this->app->make(Router::class);
+        $router->aliasMiddleware('twilio', TwilioRequestValidator::class);
     }
 
     public function register()
