@@ -13,7 +13,6 @@ class TwilioService
     protected string $to = '';
     protected Client $client;
     protected string $statusCallback = '';
-    public Config $config;
 
     public static function make(): self
     {
@@ -25,13 +24,8 @@ class TwilioService
      */
     public function __construct(Config $config)
     {
-        $this->config = $config;
-        info('Account SID    : ' . $config->get('account_sid'));
-        info('Auth Token     : ' . $config->get('auth_token'));
-        info('Status Callback: ' . $config->get('status_callback'));
-
-        $this->client = new Client($config->get('account_sid', ''), $config->get('auth_token', ''));
-        $this->statusCallback = $config->get('status_callback', '');
+        $this->client = new Client($config->get('twilio.account_sid', ''), $config->get('twilio.auth_token', ''));
+        $this->statusCallback = $config->get('twilio.status_callback', '');
     }
 
     public function from(string $from): self
