@@ -3,6 +3,7 @@
 namespace Codemonkey76\Twilio;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Routing\Router;
 
 class TwilioServiceProvider extends ServiceProvider
 {
