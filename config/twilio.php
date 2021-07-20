@@ -1,7 +1,7 @@
-    <?php
+<?php
 
 return [
-    'account_sid' => getenv('TWILIO_ACCOUNT_SID'),
-    'auth_token' => getenv('TWILIO_AUTH_TOKEN'),
-    'status_callback' => getenv('TWILIO_STATUS_CALLBACK')
+    'account_sid' => env('TWILIO_ACCOUNT_SID', ''),
+    'auth_token' => env('TWILIO_AUTH_TOKEN', ''),
+    'status_callback' => env('TWILIO_STATUS_CALLBACK', '')
 ];
