@@ -20,7 +20,7 @@ class TwilioRequestValidator
         }
 
         $isValid = $requestValidator->validate(
-            $request->header('X-Twilio-Signature'),
+            $request->header('X-Twilio-Signature') ?? '',
             $request->fullUrl(),
             $requestData
         );
