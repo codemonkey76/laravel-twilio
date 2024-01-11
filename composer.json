@@ -1,35 +1,35 @@
 {
-	"name": "codemonkey76/laravel-twilio",
-	"description": "Wrapper for twilio/sdk",
-	"type": "library",
-	"require": {
-		"php": ">=7.4",
-		"illuminate/support": "^6|^7|^8",
-		"illuminate/http": "^5.0|^6.0|^7.0|^8.0|^9.0",
-		"twilio/sdk": "^6.27"
-	},
-	"license": "MIT",
-	"authors": [
-		{
-			"name": "Shane Poppleton",
-			"email": "shane@bjja.com.au"
-		}
-	],
-	"autoload": {
-		"psr-4": {
-			"Codemonkey76\\Twilio\\": "src/"
-		}
-	},
-	"extra": {
-		"laravel": {
-			"providers": [
-				"Codemonkey76\\Twilio\\TwilioServiceProvider"
-			],
-			"aliases": {
-				"Sms":"Codemonkey76\\Twilio\\Facades\\TwilioFacade"
-			}
-		}
-	},
-	"minimum-stability": "dev",
-	"prefer-stable": true
+  "name": "codemonkey76/laravel-twilio",
+  "description": "Wrapper for twilio/sdk",
+  "type": "library",
+  "require": {
+    "php": "^8.1",
+    "illuminate/support": "^10",
+    "illuminate/http": "^10",
+    "twilio/sdk": "^7"
+  },
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Shane Poppleton",
+      "email": "shane@bjja.com.au"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Codemonkey76\\Twilio\\": "src/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Codemonkey76\\Twilio\\TwilioServiceProvider"
+      ],
+      "aliases": {
+        "Sms": "Codemonkey76\\Twilio\\Facades\\TwilioFacade"
+      }
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
 }
